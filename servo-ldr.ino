@@ -78,13 +78,14 @@ void loop() {
 void initServo(){
   //message
   Serial.println("Initialising the servo & led...");
-  //blink the led 
+  //blink the led
+  //NOTE the LED may appear very dim unless the room is darkened 
     digitalWrite(8, HIGH);
     delay(100);
     digitalWrite(8,LOW);
 
     delay(500);
-    //move servo through all degrees
+    //TODO move servo through all degrees - doesn't currently work
   int servoDeg;
   for(servoDeg=0; servoDeg>=180;servoDeg++){
     servoPos(servoDeg);
@@ -132,6 +133,8 @@ void servoPos(int pos){
   myServo.write(pos);
   digitalWrite(8, LOW);
 }//end servoPos
+
+//TODO remove below stubs if they don't do anything
 
 void faceEast(){
   //move servo fully on/off for a signal on East LDR
